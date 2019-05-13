@@ -52,8 +52,6 @@ These error codes indicate that Service Fabric terminated the process/container.
 
 ## Other common error codes and their potential fixes
 
-### 3221225794 "STATUS_DLL_INIT_FAILED"
-
-Cause: This error can potentially mean that the machine has run out of desktop heap space. This is especially likely if you have a large number of processes belonging to your application running on the node.
-
-Potential Fixes: If your program wasn't built to respond to Ctrl+C signals, you can enable the "EnableActivateNoWindow" setting in the Cluster Manifest. This would mean your code package would run without a GUI window and would not receive Ctrl+C signals, but would reduce the amount of desktop heap space each process consumes. If your code package needs to receive Ctrl+C signals, then you can increase the size of your node's desktop heap.
+Error Code | Short Description | Root Cause | Potential Fix
+---------- | ----------------- | ---------- | -------------
+3221225794 | STATUS_DLL_INIT_FAILED | This error can potentially mean that the machine has run out of desktop heap space. This is especially likely if you have a large number of processes belonging to your application running on the node. | If your program wasn't built to respond to Ctrl+C signals, you can enable the "EnableActivateNoWindow" setting in the Cluster Manifest. This would mean your code package would run without a GUI window and would not receive Ctrl+C signals, but would reduce the amount of desktop heap space each process consumes. If your code package needs to receive Ctrl+C signals, then you can increase the size of your node's desktop heap.
